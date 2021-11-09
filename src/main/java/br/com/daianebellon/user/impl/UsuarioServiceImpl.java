@@ -1,7 +1,6 @@
 package br.com.daianebellon.user.impl;
 
 import br.com.daianebellon.user.Usuario;
-import br.com.daianebellon.user.UsuarioDocument;
 import br.com.daianebellon.user.UsuarioService;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -16,17 +15,17 @@ import java.util.Optional;
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Inject
-    @Named("usuarioServicePostgres")
-    UsuarioService serviceMongo;
+    @Named("usuarioMongoService")
+    UsuarioService service;
 
     @Override
     public Response register(Usuario usuario) {
         if (usuario == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        Usuario.persist(usuario);
 
-//        serviceMongo.register(usuario);
+        Usuario.add(usuario.nome, usuario.email, usuario.senha, usuario.role);
+        service.register(usuario);
 
         return Response.ok(usuario).build();
     }

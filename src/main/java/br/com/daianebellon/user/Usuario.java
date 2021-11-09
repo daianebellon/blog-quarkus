@@ -31,12 +31,12 @@ public class Usuario extends PanacheEntityBase {
     @Roles
     public String role;
 
-    public static void add(String email, String senha, String role) {
+    public static void add(String nome, String email, String senha, String role) {
         Usuario usuario = new Usuario();
+        usuario.nome = nome;
         usuario.email = email;
         usuario.senha = BcryptUtil.bcryptHash(senha);
         usuario.role = role;
         usuario.persist();
     }
-
 }

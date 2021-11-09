@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 public class UsuarioResource {
 
     @Inject
-    @Named("usuarioMongoService")
+    @Named("usuarioServicePostgres")
     UsuarioService service;
 
     @POST

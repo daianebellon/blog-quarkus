@@ -1,5 +1,7 @@
 package br.com.daianebellon.user;
 
+import javax.persistence.Entity;
+
 public class UsuarioDocument {
 
     private String id;

@@ -13,8 +13,7 @@ public class Startup {
 
     @Transactional
     public void carregarUsuarios(@Observes StartupEvent evt) {
-//        Usuario.deleteAll();
-        Usuario.add("email@email", "1234", "ADMIN");
+        Usuario.add("laura","email@email", "1234", "ADMIN");
         System.out.println(BcryptUtil.bcryptHash("email@email:1234"));
     }
 }
